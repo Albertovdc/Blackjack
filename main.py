@@ -2,33 +2,25 @@ import random
 
 
 def game(user, computer):
+    # The user or computer have a blackjack
     if score(user) == 21:
-        print(f"User {user}")
-        print(f"Computer {computer}")
-        print("You win Blackjack")
-    elif score(user) > 21:
-        print(f"User {user}")
-        print(f"Computer {computer}")
-        print("You lose")
-    elif score(user) == score(computer):
-        print(f"User {user}")
-        print(f"Computer {computer}")
-        print("Draw")
-    elif score(computer) == 21:
-        print(f"User {user}")
-        print(f"Computer {computer}")
-        print("You lose Blackjack")
-    elif score(computer) <= 17 and score(computer) < 21:
-        computer += [card()]
-        game(user, computer)
-    elif score(computer) < 21:
-        computer += [card()]
-        game(user, computer)
-    elif score(computer) > 21:
-        print(f"User {user}")
-        print(f"Computer {computer}")
-        print("You win")
+        print(f"Your final hand {user}, final score {score(user)}")
+        print(f"Computer's final hand {computer}, final score {score(computer)}")
+        print("You win by Blackjack")
 
+    elif computer == 21:
+        print(f"Your final hand {user}, final score {score(user)}")
+        print(f"Computer's final hand {computer}, final score {score(computer)}")
+        print("You lose by Blackjack")
+
+    # The user's score over 21 and have a "Ace"
+    if 11 in user and score(computer) > 21:
+        user[11] = 1
+
+    elif score(user) == 21 and score(user) == score(computer):
+        print(f"\tYour cards: {user}, current score: {score(user)}")
+        print(f"Computer's final hand {computer}, final score {score(computer)}")
+        print("Draw")
 
 
 def card():
@@ -54,23 +46,8 @@ if chose == "y":
     # Scores
     user_score = score(user_cards)
     computer_score = score(computer_cards)
-    if 11 in user_cards and user_score > 21:
-        user_cards[11] = 1
 
-    elif user_score == 21:
-        print(f"Your final hand {user_score}, final score {computer_score}")
-        print(f"Computer's final hand {computer_cards}, final score {computer_score}")
-        print("You win by Blackjack")
-
-    elif user_score == 21 and user_score == computer_score:
-        print(f"\tYour cards: {user_cards}, current score: {user_score}")
-        print(f"Computer's final hand {computer_cards}, final score {computer_score}")
-        print("Draw")
-
-    elif computer_score == 21:
-        print(f"\tYour cards: {user_cards}, current score: {user_score}")
-        print(f"Computer's final hand {computer_cards}, final score {computer_score}")
-        print("You lose")
+    game(user_cards, computer_cards)
 
     while user_score < 21:
 
@@ -88,3 +65,5 @@ if chose == "y":
             game(user_cards, computer_cards)
             computer_score = score(computer_cards)
             user_score = 30
+    print(user_cards)
+    print(computer_cards)

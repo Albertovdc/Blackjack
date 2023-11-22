@@ -14,6 +14,8 @@ def blackjack(cards):
 
 
 def game(user, computer):
+    """ Who win? """
+
     if score(user) == 21 and score(user) == score(computer):
         print(f"\tYour cards: {user}, current score: {score(user)}")
         print(f"Computer's final hand {computer}, final score {score(computer)}")
@@ -23,10 +25,18 @@ def game(user, computer):
         print(f"\tYour cards: {user}, current score: {score(user)}")
         print(f"Computer's final hand {computer}, final score {score(computer)}")
         print("You lose")
+
+    elif score(user) > score(computer) and score(user) < 21:
+        print(f"\tYour cards: {user}, current score: {score(user)}")
+        print(f"Computer's final hand {computer}, final score {score(computer)}")
+        print("You win")
+
+
+
+def computer_play(user, computer):
     elif score(computer) < 21 and score(computer) < score(user):
         computer += [card()]
         game(user, computer)
-
 
 def card():
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -84,7 +94,12 @@ if chose == "y":
                     blackjack = False
             # game(user_cards, computer_cards)
         elif chose == "n":
-            if blackjack(user_cards):
+            if computer_score < 21 and computer_score < user_cards:
+                computer_cards += [card()]
+                game(user_cards, computer_cards)
+                if computer_score > 21:
+                    blackjack = False
+
 
             blackjack = False
 

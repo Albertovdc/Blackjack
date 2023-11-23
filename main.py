@@ -58,8 +58,16 @@ if chose == "y":
                     user_cards += [card()]
                     user_score = score(user_cards)
                     if user_score > 21:
+                        print(f"\tYour cards: {user_cards}, current score: {user_score}")
+                        print(f"Computer's cards {computer_cards}")
+                        print(f"\tComputer's first card: {computer_cards[0]}")
+                        print("You lose")
                         game = False
                     elif user_score == 21:
+                        print(f"\tYour cards: {user_cards}, current score: {user_score}")
+                        print(f"Computer's cards {computer_cards}")
+                        print(f"\tComputer's first card: {computer_cards[0]}")
+                        print("You win by blackjack")
                         game = False
             elif chose == "n":
                 on = True

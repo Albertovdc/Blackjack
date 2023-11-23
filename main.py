@@ -49,7 +49,7 @@ if chose == "y":
         while game:
             user_score = score(user_cards)
             print(f"\tYour cards: {user_cards}, current score: {user_score}")
-            print(f"Computer's cards {computer_cards}")
+            # print(f"Computer's cards {computer_cards}")
             print(f"\tComputer's first card: {computer_cards[0]}")
 
             chose = input("Type 'y' to get another card, type 'n' to pass: ")

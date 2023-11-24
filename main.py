@@ -15,16 +15,18 @@ def ace(cards):
 
 
 def card():
+    """Returns a random card from the deck"""
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
     n = random.choice(cards)
     return n
 
 
 def score(c):
-    total = 0
-    for item in c:
-        total += item
-    return total
+    # total = 0
+    # for item in c:
+    #     total += item
+    # return total
+    return sum(c)
 
 
 game_on = True
@@ -47,6 +49,7 @@ while game_on:
         if user_score == 21:
             result(user_cards, computer_cards)
             print("You win by Blackjack")
+
         elif computer_score == 21:
             result(user_cards, computer_cards)
             print("You lose by Blackjack")

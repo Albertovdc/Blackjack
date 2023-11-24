@@ -77,8 +77,6 @@ while game_on:
                 elif chose == "n":
                     on = True
                     while on:
-                        computer_cards += [card()]
-                        computer_score = score(computer_cards)
                         if user_score == computer_score:
                             result(user_cards, computer_cards)
                             print("Draw")
@@ -95,6 +93,8 @@ while game_on:
                             result(user_cards, computer_cards)
                             print("You win")
                             on = False
+                        computer_cards += [card()]
+                        computer_score = score(computer_cards)
                     game = False
 
     elif chose == "n":

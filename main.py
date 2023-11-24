@@ -1,6 +1,7 @@
 import random
 import os
 
+
 def result(user, computer):
     print(f"Your final hand: {user}, final score: {score(user)}")
     print(f"Computer's final hand: {computer}, final score: {score(computer)}")

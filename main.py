@@ -76,10 +76,11 @@ while game_on:
                     while on:
                         computer_cards += [card()]
                         computer_score = score(computer_cards)
-                        if computer_score > user_score and computer_score == 21:
+                        if user_score < computer_score < 16 and computer_score == 21:
                             result(user_cards, computer_cards)
                             print("You lose by Blackjack")
                             on = False
+
                         elif user_score < computer_score < 21:
                             result(user_cards, computer_cards)
                             print("You lose")
